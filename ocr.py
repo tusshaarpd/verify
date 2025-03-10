@@ -10,9 +10,12 @@ import os
 import asyncio
 
 # Handle async event loop issue
+
+
 try:
     asyncio.get_running_loop()
 except RuntimeError:
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  # For Windows
     asyncio.set_event_loop(asyncio.new_event_loop())
 
 # Load OCR model from Hugging Face with Streamlit secrets
