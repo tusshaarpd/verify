@@ -40,7 +40,7 @@ def extract_text(image):
         return ""
 
 def validate_data(submitted, extracted):
-    discrepancies =
+    discrepancies = []
 
     # Rule 1: If status is currently employed, no need for an end date
     if submitted['Status'] == 'Currently Employed' and extracted['End Date']:
