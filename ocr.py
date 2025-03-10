@@ -8,11 +8,11 @@ import pytesseract
 import asyncio
 import platform
 
-# Handle async event loop issue
+# Handle async event loop issue (place this block at the top level of your script)
 try:
     asyncio.get_running_loop()
 except RuntimeError:
-    if platform.system() == "Windows": # Check if running on windows
+    if platform.system() == "Windows":
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     asyncio.set_event_loop(asyncio.new_event_loop())
 
