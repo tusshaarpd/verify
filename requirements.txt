@@ -1,0 +1,9 @@
+streamlit
+pytesseract
+Pillow
+transformers
+torch
+pdf2image
+pymupdf
+pandas
+numpy
