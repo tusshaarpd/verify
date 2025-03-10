@@ -1,9 +1,8 @@
-streamlit
-pytesseract
-Pillow
+streamlit>=1.43.1
 transformers>=4.49.0
-torch
-pdf2image
-pymupdf
-pandas
-numpy
+torch>=2.6.0
+Pillow>=11.1.0
+pytesseract>=0.3.13
+pandas>=2.2.3
+pdf2image>=1.17.0
+pymupdf>=1.25.3
