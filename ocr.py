@@ -7,6 +7,13 @@ from PIL import Image
 import pytesseract
 import re
 import os
+import asyncio
+
+# Handle async event loop issue
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
 
 # Load OCR model from Hugging Face with Streamlit secrets
 trocr_processor = AutoProcessor.from_pretrained("microsoft/trocr-base-printed", token=st.secrets["HF_AUTH_TOKEN"])
