@@ -1,7 +1,7 @@
 streamlit
 pytesseract
 Pillow
-transformers
+transformers>=4.49.0
 torch
 pdf2image
 pymupdf
