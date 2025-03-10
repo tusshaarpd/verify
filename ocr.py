@@ -6,12 +6,14 @@ from transformers import AutoProcessor, VisionEncoderDecoderModel
 from PIL import Image
 import pytesseract
 import asyncio
+import platform
 
 # Handle async event loop issue
 try:
     asyncio.get_running_loop()
 except RuntimeError:
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  # For Windows
+    if platform.system() == "Windows": # Check if running on windows
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     asyncio.set_event_loop(asyncio.new_event_loop())
 
 # Load OCR model from Hugging Face with Streamlit secrets
