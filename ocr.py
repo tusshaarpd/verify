@@ -2,15 +2,15 @@ import streamlit as st
 import time
 import pandas as pd
 from datetime import datetime, timedelta
-from transformers import TrOCRProcessor, VisionEncoderDecoderModel
+from transformers import AutoProcessor, VisionEncoderDecoderModel
 from PIL import Image
 import pytesseract
 import re
 import os
 
 # Load OCR model from Hugging Face with Streamlit secrets
-trocr_processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-printed", use_auth_token=st.secrets["HF_AUTH_TOKEN"])
-trocr_model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-printed", use_auth_token=st.secrets["HF_AUTH_TOKEN"])
+trocr_processor = AutoProcessor.from_pretrained("microsoft/trocr-base-printed", token=st.secrets["HF_AUTH_TOKEN"])
+trocr_model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-printed", token=st.secrets["HF_AUTH_TOKEN"])
 
 def extract_text(image):
     text = pytesseract.image_to_string(image)
